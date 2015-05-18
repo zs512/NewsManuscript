@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd" xmlns:tx="http://www.springframework.org/schema/tx">
+
+	<!-- test spring -->
+	<bean id="testService" class="com.test.TestService">
+		<property name="name" value="testData"></property>
+	</bean>
+
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="url"
+			value="jdbc:sqlserver://172.100.100.246:1433;databaseName=NewsManuscript">
+		</property>
+		<property name="username" value="sa"></property>
+		<property name="password" value="admin_312"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.SQLServerDialect
+				</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+		<property name="annotatedClasses">
+			<list>
+				<value>com.domain.ComProgramChief</value>
+				<value>com.domain.ComManuscript</value>
+				<value>com.domain.ComProgramProducer</value>
+				<value>com.domain.ComManuscriptForm</value>
+				<value>com.domain.ComPending</value>
+				<value>com.domain.ComReferee</value>
+				<value>com.domain.ComProgramEditorCharge</value>
+				<value>com.domain.ComProgramBoss</value>
+				<value>com.domain.ComProgramDutyEditor</value>
+				<value>com.domain.ComUser</value>
+				<value>com.domain.ComProgramAppraiser</value>
+				<value>com.domain.ComProgram</value>
+				<value>com.domain.ComPosition</value>
+				<value>com.domain.ComManuscriptType</value>
+				<value>com.domain.ComDepartment</value>
+				<value>com.domain.ComForm</value></list>
+		</property></bean>
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<bean
+		id="ComProgramChiefDAO" class="com.dao.ComProgramChiefDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ComManuscriptDAO" class="com.dao.ComManuscriptDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ComProgramProducerDAO"
+		class="com.dao.ComProgramProducerDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ComManuscriptFormDAO"
+		class="com.dao.ComManuscriptFormDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ComPendingDAO" class="com.dao.ComPendingDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ComRefereeDAO" class="com.dao.ComRefereeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ComProgramEditorChargeDAO"
+		class="com.dao.ComProgramEditorChargeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ComProgramBossDAO" class="com.dao.ComProgramBossDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ComProgramDutyEditorDAO"
+		class="com.dao.ComProgramDutyEditorDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ComUserDAO" class="com.dao.ComUserDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ComProgramAppraiserDAO"
+		class="com.dao.ComProgramAppraiserDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ComProgramDAO" class="com.dao.ComProgramDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ComPositionDAO" class="com.dao.ComPositionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ComManuscriptTypeDAO"
+		class="com.dao.ComManuscriptTypeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ComDepartmentDAO" class="com.dao.ComDepartmentDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ComFormDAO" class="com.dao.ComFormDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean></beans>
