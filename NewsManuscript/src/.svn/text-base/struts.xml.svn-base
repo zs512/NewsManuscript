@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- struts.xml配置修改后，系统重新加载该文件，开发阶段打开此功能 -->
+	<constant name="struts.configuration.xml.reload" value="true"/>
+	
+	<!-- 设置浏览器是否缓存静态内容，开发阶段关闭，运行时开启 -->
+	<constant name="struts.serve.static.browserCache" value="false"/>
+	
+	<!-- 请求的后缀可是.do或.action -->
+	<constant name="struts.action.extension" value="do,action"/>
+	
+	<constant name="struts.i18n.encoding" value="GBK"></constant>
+	
+</struts>    

@@ -1,0 +1,47 @@
+10
+
+dir
+2
+https://win-7c4u0fa1jf2/svn/NewsManuscript/NewsManuscript/src/com
+https://win-7c4u0fa1jf2/svn/NewsManuscript
+
+
+
+2015-05-19T02:37:04.068337Z
+2
+ruanqx
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+6473074c-f190-1f49-b8bf-2b4b564a39ab
+
+
+
+
+
+
+0
+
+dao
+dir
+
+domain
+dir
+
+test
+dir
+
+tools
+dir
+

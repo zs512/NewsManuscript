@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate
+END
+infinispan-core-6.0.0.Final.jar
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/infinispan-core-6.0.0.Final.jar
+END
+hibernate-envers-4.3.10.Final.jar
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/hibernate-envers-4.3.10.Final.jar
+END
+jgroups-3.4.1.Final.jar
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/jgroups-3.4.1.Final.jar
+END
+stax2-api-3.0.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/stax2-api-3.0.4.jar
+END
+jboss-marshalling-river-1.3.18.GA.jar
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/jboss-marshalling-river-1.3.18.GA.jar
+END
+hibernate-entitymanager-4.3.10.Final.jar
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/hibernate-entitymanager-4.3.10.Final.jar
+END
+jboss-marshalling-1.3.18.GA.jar
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/jboss-marshalling-1.3.18.GA.jar
+END
+hibernate-commons-annotations-4.0.5.Final.jar
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/hibernate-commons-annotations-4.0.5.Final.jar
+END
+ehcache-core-2.4.3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/ehcache-core-2.4.3.jar
+END
+javassist-3.18.1-GA.jar
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/javassist-3.18.1-GA.jar
+END
+hibernate-c3p0-4.3.10.Final.jar
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/hibernate-c3p0-4.3.10.Final.jar
+END
+slf4j-api-1.6.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/slf4j-api-1.6.1.jar
+END
+hibernate-infinispan-4.3.10.Final.jar
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/hibernate-infinispan-4.3.10.Final.jar
+END
+jboss-transaction-api_1.1_spec-1.0.1.Final.jar
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/jboss-transaction-api_1.1_spec-1.0.1.Final.jar
+END
+hibernate-proxool-4.3.10.Final.jar
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/hibernate-proxool-4.3.10.Final.jar
+END
+antlr-2.7.7.jar
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/antlr-2.7.7.jar
+END
+hibernate-ehcache-4.3.10.Final.jar
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/hibernate-ehcache-4.3.10.Final.jar
+END
+hibernate-jpa-2.1-api-1.0.0.Final.jar
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/hibernate-jpa-2.1-api-1.0.0.Final.jar
+END
+dom4j-1.6.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/dom4j-1.6.1.jar
+END
+hibernate-validator-4.2.0.Final.jar
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/hibernate-validator-4.2.0.Final.jar
+END
+rhq-pluginAnnotations-3.0.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/rhq-pluginAnnotations-3.0.4.jar
+END
+hibernate-core-4.3.10.Final.jar
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/hibernate-core-4.3.10.Final.jar
+END
+jboss-logging-3.1.3.GA.jar
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/jboss-logging-3.1.3.GA.jar
+END
+woodstox-core-asl-4.4.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/WebRoot/WEB-INF/lib/hibernate/woodstox-core-asl-4.4.1.jar
+END

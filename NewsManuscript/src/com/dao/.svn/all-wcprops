@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/src/com/dao
+END
+ComProgramChiefDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/src/com/dao/ComProgramChiefDAO.java
+END
+ComProgramDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/src/com/dao/ComProgramDAO.java
+END
+ComProgramAppraiserDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/src/com/dao/ComProgramAppraiserDAO.java
+END
+ComProgramEditorChargeDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/src/com/dao/ComProgramEditorChargeDAO.java
+END
+ComFormDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/src/com/dao/ComFormDAO.java
+END
+ComProgramDutyEditorDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/src/com/dao/ComProgramDutyEditorDAO.java
+END
+ComManuscriptDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/src/com/dao/ComManuscriptDAO.java
+END
+ComPositionDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/src/com/dao/ComPositionDAO.java
+END
+ComManuscriptFormDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/src/com/dao/ComManuscriptFormDAO.java
+END
+ComUserDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/src/com/dao/ComUserDAO.java
+END
+ComProgramBossDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/src/com/dao/ComProgramBossDAO.java
+END
+ComDepartmentDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/src/com/dao/ComDepartmentDAO.java
+END
+ComProgramProducerDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/src/com/dao/ComProgramProducerDAO.java
+END
+ComPendingDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/src/com/dao/ComPendingDAO.java
+END
+ComRefereeDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/src/com/dao/ComRefereeDAO.java
+END
+ComManuscriptTypeDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/NewsManuscript/!svn/ver/2/NewsManuscript/src/com/dao/ComManuscriptTypeDAO.java
+END
