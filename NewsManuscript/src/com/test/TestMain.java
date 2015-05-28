@@ -13,11 +13,11 @@ public class TestMain {
 		ApplicationContext aContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 		TestService tsService = (TestService)aContext.getBean("testService");
 		System.out.println(tsService.getName());
-		ComDepartment comDepartment = new ComDepartment();
-		comDepartment.setDepartmentName("abc");
-		comDepartment.setStatus(0);
-		ComDepartmentDAO comDepartmentDAO = (ComDepartmentDAO)aContext.getBean("ComDepartmentDAO");
-		//comDepartmentDAO.save(comDepartment);
+//		ComDepartment comDepartment = new ComDepartment();
+//		comDepartment.setDepartmentName("abc");
+//		comDepartment.setStatus(0);
+//		ComDepartmentDAO comDepartmentDAO = (ComDepartmentDAO)aContext.getBean("ComDepartmentDAO");
+//		comDepartmentDAO.save(comDepartment);
 	}
 
 }
