@@ -13,13 +13,13 @@ public class TestMain {
 		// TODO Auto-generated method stub
 		ApplicationContext aContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-		ComDepartment comDepartment = new ComDepartment();
-		comDepartment.setDepartmentId("2ce4e7854d99c1d0014d99c1d5d50000");
-		comDepartment.setDepartmentName("abc");
-		comDepartment.setStatus(0);
-
-		DepartmentManage departmentManage = new DepartmentManage();
-		departmentManage.delDepartment(comDepartment);
+//		ComDepartment comDepartment = new ComDepartment();
+//		comDepartment.setDepartmentId("2ce4e7854d99c1d0014d99c1d5d50000");
+//		comDepartment.setDepartmentName("abc");
+//		comDepartment.setStatus(0);
+//
+//		DepartmentManage departmentManage = new DepartmentManage();
+//		departmentManage.delDepartment(comDepartment);
 	}
 
 }

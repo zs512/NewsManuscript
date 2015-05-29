@@ -28,7 +28,10 @@ public class DepartmentManage {
 
 	private boolean checkHasSubDepartment(String departmentId){
 		List<ComDepartment> comDepartmentList = comDepartmentDAO.findByParentDepartment(departmentId);
-		return (comDepartmentList != null || comDepartmentList.size() > 0);
+		if(comDepartmentList != null)
+			if(comDepartmentList.size() > 0)
+				return true;
+		return false;
 	}
 
 	private boolean checkDepartmentIsExistent(String departmentId){
@@ -51,7 +54,7 @@ public class DepartmentManage {
 			if(department.getDepartmentName() == null)
 				throw new NullPointerException("department's name is null");
 			else if(!checkNameSizeIsLegal(department.getDepartmentName()))
-				throw new DepartmentNameException("size of department's name is not in (0, 32]");
+				throw new DepartmentNameSizeException("size of department's name is not in (0, 32]");
 			else if(!checkNameIsOnly(department.getDepartmentName()))
 				throw new DepartmentNameException("name of department is existent");
 
@@ -68,6 +71,8 @@ public class DepartmentManage {
 			
 			comDepartmentDAO.save(department);
 			
+		}catch(DepartmentNameSizeException e){
+			System.out.println(e.toString());
 		}catch(DepartmentNameException e){
 			System.out.println(e.toString());
 		}
