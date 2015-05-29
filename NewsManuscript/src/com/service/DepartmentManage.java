@@ -123,15 +123,21 @@ public class DepartmentManage {
 			if(!checkDepartmentIsExistent(department.getDepartmentId()))
 				throw new DepartmentUpdNotExistentException("department is not existent");
 
+			ComDepartment comDepartment = comDepartmentDAO.findById(department.getDepartmentId());
+
 			/*
 			 *check department's name
 			 */
 			if(department.getDepartmentName() == null)
 				throw new NullPointerException("department's name is null");
-			else if(!checkNameSizeIsLegal(department.getDepartmentName()))
-				throw new DepartmentNameSizeException("size of department's name is not in (0, 32]");
-			else if(!checkNameIsOnly(department.getDepartmentName()))
-				throw new DepartmentNameException("name of department is existent");
+			else{
+				if(!comDepartment.getDepartmentName().equals(department.getDepartmentName())){
+					if(!checkNameSizeIsLegal(department.getDepartmentName()))
+						throw new DepartmentNameSizeException("size of department's name is not in (0, 32]");
+					if(!checkNameIsOnly(department.getDepartmentName()))
+						throw new DepartmentNameException("name of department is existent");
+				}
+			}
 
 			/*
 			 * check department's parentDepartment
