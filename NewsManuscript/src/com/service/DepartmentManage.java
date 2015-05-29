@@ -11,9 +11,7 @@ import com.domain.ComDepartment;
 import java.util.List;
 
 public class DepartmentManage {
-	/* new department
-	 * 
-	 */
+
 	ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 	ComDepartmentDAO comDepartmentDAO = (ComDepartmentDAO)applicationContext.getBean("ComDepartmentDAO");
 
@@ -22,7 +20,7 @@ public class DepartmentManage {
 		return (comDepartmentList == null || comDepartmentList.size() <= 0);
 	}
 
-	private boolean checkNameSizeIsLegal(String departmentName){
+	private boolean checkSizeIsLegal(String departmentName){
 		return departmentName.length() > 0 && departmentName.length() <= 32;
 	}
 
@@ -39,21 +37,21 @@ public class DepartmentManage {
 		return (comDepartment != null && comDepartment.getDepartmentId() != null);
 	}
 
-	public void addDepartment(ComDepartment department){
+	private void checkBeforeAdd(ComDepartment department) throws DepartmentCheckBeforeAddException{
 
 		try{
 			/*
-			 * check the object department  
+			 * check the object department
 			 */
 			if(department == null)
 				throw new NullPointerException("department is null");
-			
+
 			/*
 			 * check department's name
 			 */
 			if(department.getDepartmentName() == null)
 				throw new NullPointerException("department's name is null");
-			else if(!checkNameSizeIsLegal(department.getDepartmentName()))
+			else if(!checkSizeIsLegal(department.getDepartmentName()))
 				throw new DepartmentNameSizeException("size of department's name is not in (0, 32]");
 			else if(!checkNameIsOnly(department.getDepartmentName()))
 				throw new DepartmentNameException("name of department is existent");
@@ -66,19 +64,17 @@ public class DepartmentManage {
 					throw new NullPointerException("parent-department is not existence");
 			}
 
-
-			department.setStatus(0);
-			
-			comDepartmentDAO.save(department);
-			
 		}catch(DepartmentNameSizeException e){
 			System.out.println(e.toString());
+			throw new DepartmentCheckBeforeAddException();
 		}catch(DepartmentNameException e){
 			System.out.println(e.toString());
+			throw new DepartmentCheckBeforeAddException();
 		}
+
 	}
-	
-	public void delDepartment(ComDepartment department){
+
+	private void checkBeforeDel(ComDepartment department) throws DepartmentCheckBeforeDelException{
 		try{
 			/*
 			 *check department
@@ -89,8 +85,7 @@ public class DepartmentManage {
 			/*
 			 *check department is existent or not
 			 */
-			ComDepartment comDepartment = comDepartmentDAO.findById(department.getDepartmentId());
-			if(comDepartment == null || comDepartment.getDepartmentId() == null)
+			if(checkDepartmentIsExistent(department.getDepartmentId()))
 				throw new DepartmentDelNotExistentException("department is not existent");
 
 			/*
@@ -99,17 +94,16 @@ public class DepartmentManage {
 			if(checkHasSubDepartment(department.getDepartmentId()))
 				throw new DepartmentDelSubdepartmentExistentException("department has some sub-departments");
 
-			department.setStatus(1);
-			comDepartmentDAO.attachDirty(department);
-
 		}catch(DepartmentDelNotExistentException e){
 			System.out.println(e.toString());
+			throw new DepartmentCheckBeforeDelException();
 		}catch(DepartmentDelSubdepartmentExistentException e){
 			System.out.println(e.toString());
+			throw new DepartmentCheckBeforeDelException();
 		}
 	}
 
-	public void updDepartment(ComDepartment department){
+	private void checkBeforeUpd(ComDepartment department) throws DepartmentCheckBeforeUpdException{
 		try{
 			/*
 			 *check department
@@ -132,7 +126,7 @@ public class DepartmentManage {
 				throw new NullPointerException("department's name is null");
 			else{
 				if(!comDepartment.getDepartmentName().equals(department.getDepartmentName())){
-					if(!checkNameSizeIsLegal(department.getDepartmentName()))
+					if(!checkSizeIsLegal(department.getDepartmentName()))
 						throw new DepartmentNameSizeException("size of department's name is not in (0, 32]");
 					if(!checkNameIsOnly(department.getDepartmentName()))
 						throw new DepartmentNameException("name of department is existent");
@@ -144,19 +138,59 @@ public class DepartmentManage {
 			 */
 			if(department.getParentDepartment() != null){
 				if(!checkDepartmentIsExistent(department.getParentDepartment()))
-					throw new NullPointerException("parent-department is not existence");
+					throw new NullPointerException("parent-department is not existent");
 			}
-
-			department.setStatus(0);
-
-			comDepartmentDAO.attachDirty(department);
-
 		}catch(DepartmentUpdNotExistentException e){
 			System.out.println(e.toString());
-		}catch(DepartmentNameException e){
-			System.out.println(e.toString());
+			throw new DepartmentCheckBeforeUpdException();
 		}catch(DepartmentNameSizeException e){
+			System.out.println(e.toString());
+			throw new DepartmentCheckBeforeUpdException();
+		}catch(DepartmentNameException e) {
+			System.out.println(e.toString());
+			throw new DepartmentCheckBeforeUpdException();
+		}
+	}
+
+	public void addDepartment(ComDepartment department){
+
+		try {
+
+			checkBeforeAdd(department);
+
+			department.setStatus(0);
+			comDepartmentDAO.save(department);
+		}catch(DepartmentCheckBeforeAddException e){
+			System.out.println(e.toString());
+		}
+
+	}
+
+	public void delDepartment(ComDepartment department){
+		try{
+
+			checkBeforeDel(department);
+
+			department = comDepartmentDAO.findById(department.getDepartmentId());
+			department.setStatus(1);
+			comDepartmentDAO.attachDirty(department);
+
+		}catch(DepartmentCheckBeforeDelException e){
 			System.out.println(e.toString());
 		}
 	}
+
+	public void updDepartment(ComDepartment department){
+		try{
+
+			checkBeforeUpd(department);
+
+			department.setStatus(0);
+			comDepartmentDAO.attachDirty(department);
+
+		}catch(DepartmentCheckBeforeUpdException e){
+			System.out.println(e.toString());
+		}
+	}
+
 }

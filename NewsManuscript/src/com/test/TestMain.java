@@ -14,11 +14,10 @@ public class TestMain {
 		ApplicationContext aContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 
 		ComDepartment comDepartment = new ComDepartment();
-		comDepartment.setDepartmentId("2ce4e7854d9d5a59014d9d5a5f6a0000");
 		comDepartment.setDepartmentName("abcd");
 
 		DepartmentManage departmentManage = new DepartmentManage();
-		departmentManage.updDepartment(comDepartment);
+		departmentManage.addDepartment(comDepartment);
 	}
 
 }
