@@ -10,7 +10,7 @@ import com.domain.ComDepartment;
 
 import java.util.List;
 
-public class DepartmentManage {
+public class DepartmentManage extends Manage{
 
 	ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 	ComDepartmentDAO comDepartmentDAO = (ComDepartmentDAO)applicationContext.getBean("ComDepartmentDAO");
@@ -18,10 +18,6 @@ public class DepartmentManage {
 	private boolean checkNameIsOnly(String departmentName){
 		List<ComDepartment> comDepartmentList = comDepartmentDAO.findByDepartmentName(departmentName);
 		return (comDepartmentList == null || comDepartmentList.size() <= 0);
-	}
-
-	private boolean checkSizeIsLegal(String departmentName){
-		return departmentName.length() > 0 && departmentName.length() <= 32;
 	}
 
 	private boolean checkHasSubDepartment(String departmentId){
@@ -51,7 +47,7 @@ public class DepartmentManage {
 			 */
 			if(department.getDepartmentName() == null)
 				throw new NullPointerException("department's name is null");
-			else if(!checkSizeIsLegal(department.getDepartmentName()))
+			else if(!checkSizeIsLegal(department.getDepartmentName(), 1, 32))
 				throw new DepartmentNameSizeException("size of department's name is not in (0, 32]");
 			else if(!checkNameIsOnly(department.getDepartmentName()))
 				throw new DepartmentNameException("name of department is existent");
@@ -126,7 +122,7 @@ public class DepartmentManage {
 				throw new NullPointerException("department's name is null");
 			else{
 				if(!comDepartment.getDepartmentName().equals(department.getDepartmentName())){
-					if(!checkSizeIsLegal(department.getDepartmentName()))
+					if(!checkSizeIsLegal(department.getDepartmentName(), 1, 32))
 						throw new DepartmentNameSizeException("size of department's name is not in (0, 32]");
 					if(!checkNameIsOnly(department.getDepartmentName()))
 						throw new DepartmentNameException("name of department is existent");

@@ -14,15 +14,11 @@ import java.util.List;
 /**
  * Created by ruanqx on 2015/5/29.
  */
-public class EmployeeManage {
+public class EmployeeManage extends Manage{
 
     ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
     ComUserDAO comUserDAO = (ComUserDAO)applicationContext.getBean("ComUserDAO");
     ComDepartmentDAO comDepartmentDAO = (ComDepartmentDAO)applicationContext.getBean("ComDepartmentDAO");
-
-    private boolean checkSizeIsLegal(String departmentName){
-        return departmentName.length() > 0 && departmentName.length() <= 32;
-    }
 
     private boolean checkLoginNameIsOnly(String userLoginName){
         List<ComUser> comUserList = comUserDAO.findByLoginName(userLoginName);
@@ -52,7 +48,7 @@ public class EmployeeManage {
              */
             if(user.getLoginName() == null)
                 throw new NullPointerException("user's login name is null");
-            else if(!checkSizeIsLegal(user.getLoginName()))
+            else if(!checkSizeIsLegal(user.getLoginName(), 1, 32))
                 throw new UserAddLoginNameSizeException("size of user's login-name is not in (0, 32]");
             else if(checkLoginNameIsOnly(user.getLoginName()))
                 throw new UserAddLoginNameNotOnlyException("login name is existent");
@@ -68,7 +64,7 @@ public class EmployeeManage {
              */
             if(user.getName() == null)
                 throw new NullPointerException("user's name is null");
-            else if(!checkSizeIsLegal(user.getName()))
+            else if(!checkSizeIsLegal(user.getName(), 1, 32))
                 throw new UserAddNameSizeException("user's name is not in (0, 32]");
 
             /*
@@ -139,7 +135,7 @@ public class EmployeeManage {
             else if(!comUser.getLoginName().equals(user.getLoginName())) {
                 if(!checkLoginNameIsOnly(user.getLoginName()))
                     throw new UserUpdLoginNameRepeatException("login name is existent");
-                if(!checkSizeIsLegal(user.getLoginName()))
+                if(!checkSizeIsLegal(user.getLoginName(), 1, 32))
                     throw new UserUpdLoginNameSizeException("login name is not in (0, 32]");
             }
 
@@ -154,7 +150,7 @@ public class EmployeeManage {
              */
             if(user.getName() == null)
                 throw new NullPointerException("user's name is null");
-            else if(!checkSizeIsLegal(user.getName()))
+            else if(!checkSizeIsLegal(user.getName(), 1, 32))
                 throw new UserUpdNameSizeException("size of user's name is not in (0, 32]");
 
             /*
