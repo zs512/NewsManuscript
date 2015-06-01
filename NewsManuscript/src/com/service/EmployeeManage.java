@@ -96,7 +96,7 @@ public class EmployeeManage extends Manage{
             /*
              * check object user
              */
-            if(user == null)
+            if(user == null || user.getUserId() == null)
                 throw new NullPointerException("user is null");
 
             /*
@@ -133,10 +133,10 @@ public class EmployeeManage extends Manage{
             if(user.getLoginName() == null)
                 throw new NullPointerException("user's login name is null");
             else if(!comUser.getLoginName().equals(user.getLoginName())) {
-                if(!checkLoginNameIsOnly(user.getLoginName()))
-                    throw new UserUpdLoginNameRepeatException("login name is existent");
                 if(!checkSizeIsLegal(user.getLoginName(), 1, 32))
                     throw new UserUpdLoginNameSizeException("login name is not in (0, 32]");
+                if(!checkLoginNameIsOnly(user.getLoginName()))
+                    throw new UserUpdLoginNameRepeatException("login name is existent");
             }
 
             /*
