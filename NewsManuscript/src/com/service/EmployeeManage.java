@@ -212,6 +212,7 @@ public class EmployeeManage extends Manage{
     public void updUser(ComUser user){
 
         try{
+
             checkBeforeUpd(user);
 
             user.setStatus(0);

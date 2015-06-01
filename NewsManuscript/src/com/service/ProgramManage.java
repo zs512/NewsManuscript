@@ -22,8 +22,8 @@ public class ProgramManage extends Manage{
         return (comProgramList == null || comProgramList.size() <= 0);
     }
 
-    private boolean checkProgramIsExistent(ComProgram program){
-        ComProgram comProgram = comProgramDAO.findById(program.getProgramId());
+    private boolean checkProgramIsExistent(String programId){
+        ComProgram comProgram = comProgramDAO.findById(programId);
         return (comProgram != null && comProgram.getProgramId() != null);
     }
 
@@ -78,7 +78,7 @@ public class ProgramManage extends Manage{
             /*
              * check program is existent or not
              */
-            if(!checkProgramIsExistent(program))
+            if(!checkProgramIsExistent(program.getProgramId()))
                 throw new ProgramDelProgramNotExistentException("program is not existent");
         }catch(ProgramDelProgramNotExistentException e){
             System.out.println(e.toString());
@@ -99,7 +99,7 @@ public class ProgramManage extends Manage{
             /*
              * check program is existent or not
              */
-            if(!checkProgramIsExistent(program))
+            if(!checkProgramIsExistent(program.getProgramId()))
                 throw new ProgramUpdProgramNotExistentException("program is not existent");
 
             ComProgram comProgram = comProgramDAO.findById(program.getProgramId());
