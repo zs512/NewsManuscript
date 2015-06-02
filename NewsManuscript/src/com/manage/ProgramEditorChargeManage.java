@@ -13,22 +13,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * Created by ruanqx on 2015/6/1.
  */
-public class ProgramEditorChargeManage extends Manage{
+public class ProgramEditorChargeManage extends ProgramRelevant{
 
     ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
     ComProgramEditorChargeDAO comProgramEditorChargeDAO = (ComProgramEditorChargeDAO)applicationContext.getBean("ComProgramEditorChargeDAO");
     ComProgramDAO comProgramDAO = (ComProgramDAO)applicationContext.getBean("ComProgramDAO");
     ComUserDAO comUserDAO = (ComUserDAO)applicationContext.getBean("ComUserDAO");
-
-    private boolean checkProgramIsExistent(String programId){
-        ComProgram comProgram = comProgramDAO.findById(programId);
-        return (comProgram != null && comProgram.getProgramId() != null);
-    }
-
-    private boolean checkUserIsExistent(String userId){
-        ComUser comUser = comUserDAO.findById(userId);
-        return (comUser != null && comUser.getUserId() != null);
-    }
 
     private boolean checkProgramEditorChargeIsExistent(String programEditorChargeId){
         ComProgramEditorCharge comProgramEditorCharge = comProgramEditorChargeDAO.findById(programEditorChargeId);
@@ -47,18 +37,14 @@ public class ProgramEditorChargeManage extends Manage{
             /*
              * check program id
              */
-            if(programEditorCharge.getComProgram() == null || programEditorCharge.getComProgram().getProgramId() == null)
-                throw new NullPointerException("program is null");
-            else if(!checkProgramIsExistent(programEditorCharge.getComProgram().getProgramId()))
-                throw new ProgramEditorChargeAddProgramNotExistentException("program is not existent");
+            if(!checkProgramNotNullAndExistent(programEditorCharge.getComProgram()))
+                throw new ProgramEditorChargeAddProgramNotExistentException("program is null or is not existent");
 
             /*
              * check user id
              */
-            if(programEditorCharge.getComUser() == null || programEditorCharge.getComUser().getUserId() == null)
-                throw new NullPointerException("user is null");
-            else if(!checkUserIsExistent(programEditorCharge.getComUser().getUserId()))
-                throw new ProgramEditorChargeAddUserNotExistentException("user is not existent");
+            if(!checkUserNotNullAndExistent(programEditorCharge.getComUser()))
+                throw new ProgramEditorChargeAddUserNotExistentException("user is null or is not existent");
         }catch(ProgramEditorChargeAddProgramNotExistentException e){
             System.out.println(e.toString());
             throw new ProgramEditorChargeCheckBeforeAddException();
@@ -92,28 +78,34 @@ public class ProgramEditorChargeManage extends Manage{
 
     private void checkBeforeUpd(ComProgramEditorCharge programEditorCharge) throws ProgramEditorChargeCheckBeforeUpdException{
 
-        try{
+        try {
             /*
              * check object
              */
-            if(programEditorCharge == null)
+            if (programEditorCharge == null)
                 throw new NullPointerException("programEditorCharge is null");
+
+            /*
+             * check programEditorCharge is existent or not
+             */
+            if (!checkProgramEditorChargeIsExistent(programEditorCharge.getProgramEditorChargeId()))
+                throw new ProgramEditorChargeUpdNotExistentException("programEditorCharge is not existent");
 
             /*
              * check program id
              */
-            if(programEditorCharge.getComProgram() == null || programEditorCharge.getComProgram().getProgramId() == null)
-                throw new NullPointerException("program is null");
-            else if(!checkProgramIsExistent(programEditorCharge.getComProgram().getProgramId()))
-                throw new ProgramEditorChargeAddProgramNotExistentException("program is not existent");
+            if (!checkProgramNotNullAndExistent(programEditorCharge.getComProgram()))
+                throw new ProgramEditorChargeAddProgramNotExistentException("program is null or is not existent");
 
             /*
              * check user id
              */
-            if(programEditorCharge.getComUser() == null || programEditorCharge.getComUser().getUserId() == null)
-                throw new NullPointerException("user is null");
-            else if(!checkUserIsExistent(programEditorCharge.getComUser().getUserId()))
-                throw new ProgramEditorChargeUpdUserNotExistentException("user is not existent");
+            if (!checkUserNotNullAndExistent(programEditorCharge.getComUser()))
+                throw new ProgramEditorChargeUpdUserNotExistentException("user is null or is not existent");
+
+        }catch(ProgramEditorChargeUpdNotExistentException e){
+            System.out.println(e.toString());
+            throw new ProgramEditorChargeCheckBeforeUpdException();
         }catch(ProgramEditorChargeAddProgramNotExistentException e){
             System.out.println(e.toString());
             throw new ProgramEditorChargeCheckBeforeUpdException();
@@ -150,7 +142,6 @@ public class ProgramEditorChargeManage extends Manage{
     }
 
     public void updProgramEditorCharge(ComProgramEditorCharge programEditorCharge){
-
 
         try{
             checkBeforeUpd(programEditorCharge);
