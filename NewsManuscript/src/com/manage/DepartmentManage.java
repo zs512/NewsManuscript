@@ -81,7 +81,7 @@ public class DepartmentManage extends Manage{
 			/*
 			 *check department is existent or not
 			 */
-			if(checkDepartmentIsExistent(department.getDepartmentId()))
+			if(!checkDepartmentIsExistent(department.getDepartmentId()))
 				throw new DepartmentDelNotExistentException("department is not existent");
 
 			/*
