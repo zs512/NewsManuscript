@@ -1,4 +1,4 @@
-package com.service;
+package com.manage;
 
 import com.dao.ComProgramDAO;
 import com.dao.ComProgramEditorChargeDAO;
@@ -7,7 +7,6 @@ import com.domain.ComProgram;
 import com.domain.ComProgramEditorCharge;
 import com.domain.ComUser;
 import com.exceptions.programEditorChargeManage.*;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

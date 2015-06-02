@@ -1,4 +1,4 @@
-package com.service;
+package com.manage;
 
 import com.dao.ComProgramDAO;
 import com.domain.ComProgram;
@@ -6,7 +6,6 @@ import com.exceptions.programManage.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.awt.*;
 import java.util.List;
 
 /**

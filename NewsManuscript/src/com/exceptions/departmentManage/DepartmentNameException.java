@@ -1,7 +1,5 @@
 package com.exceptions.departmentManage;
 
-import com.service.DepartmentManage;
-
 /**
  * Created by ruanqx on 2015/5/28.
  */

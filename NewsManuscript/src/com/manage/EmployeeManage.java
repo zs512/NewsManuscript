@@ -1,4 +1,4 @@
-package com.service;
+package com.manage;
 
 import com.dao.ComDepartmentDAO;
 import com.dao.ComUserDAO;

@@ -1,4 +1,4 @@
-package com.service;
+package com.manage;
 
 
 import com.exceptions.departmentManage.*;

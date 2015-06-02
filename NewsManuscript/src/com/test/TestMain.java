@@ -1,10 +1,9 @@
 package com.test;
 
-import com.service.DepartmentManage;
+import com.manage.DepartmentManage;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.dao.ComDepartmentDAO;
 import com.domain.ComDepartment;
 
 public class TestMain {

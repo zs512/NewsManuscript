@@ -1,4 +1,4 @@
-package com.service;
+package com.manage;
 
 /**
  * Created by ruanqx on 2015/5/30.
