@@ -66,25 +66,7 @@ public class ProgramBossManage extends ProgramRelevant{
             if(!checkProgramBossIsExistent(programBoss.getProgramBossId()))
                 throw new ProgramBossDelNotExistentException("programBoss is not existent");
 
-            /*
-             * check program
-             */
-            if(!checkProgramNotNullAndExistent(programBoss.getComProgram()))
-                throw new ProgramBossDelProgramNotExistentException("programBoss's program is not existent");
-
-            /*
-             * check user
-             */
-            if(!checkUserNotNullAndExistent(programBoss.getComUser()))
-                throw new ProgramBossDelUserNotExistentException("programBoss's user is not existent");
-
         }catch(ProgramBossDelNotExistentException e){
-            System.out.println(e.toString());
-            throw new ProgramBossCheckBeforeDelException();
-        }catch(ProgramBossDelProgramNotExistentException e){
-            System.out.println(e.toString());
-            throw new ProgramBossCheckBeforeDelException();
-        }catch(ProgramBossDelUserNotExistentException e){
             System.out.println(e.toString());
             throw new ProgramBossCheckBeforeDelException();
         }
