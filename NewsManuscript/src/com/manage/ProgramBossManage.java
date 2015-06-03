@@ -73,7 +73,6 @@ public class ProgramBossManage extends ProgramRelevant{
 
     }
 
-
     private void checkBeforeUpd(ComProgramBoss programBoss) throws ProgramBossCheckBeforeUpdException{
 
         try{
