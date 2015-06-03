@@ -20,9 +20,9 @@ public class EmployeeManage extends Manage{
     ComUserDAO comUserDAO = (ComUserDAO)applicationContext.getBean("ComUserDAO");
     ComDepartmentDAO comDepartmentDAO = (ComDepartmentDAO)applicationContext.getBean("ComDepartmentDAO");
 
-    private boolean checkLoginNameIsOnly(String userLoginName){
+    private boolean checkLoginNameIsExistent(String userLoginName){
         List<ComUser> comUserList = comUserDAO.findByLoginName(userLoginName);
-        return (comUserList == null || comUserList.size() <= 0);
+        return (comUserList != null && comUserList.size() > 0);
     }
 
     private boolean checkDepartmentIsExistent(String departmentId){
@@ -50,7 +50,7 @@ public class EmployeeManage extends Manage{
                 throw new NullPointerException("user's login name is null");
             else if(!checkSizeIsLegal(user.getLoginName(), 1, 32))
                 throw new UserAddLoginNameSizeException("size of user's login-name is not in (0, 32]");
-            else if(checkLoginNameIsOnly(user.getLoginName()))
+            else if(checkLoginNameIsExistent(user.getLoginName()))
                 throw new UserAddLoginNameNotOnlyException("login name is existent");
 
             /*
@@ -135,7 +135,7 @@ public class EmployeeManage extends Manage{
             else if(!comUser.getLoginName().equals(user.getLoginName())) {
                 if(!checkSizeIsLegal(user.getLoginName(), 1, 32))
                     throw new UserUpdLoginNameSizeException("login name is not in (0, 32]");
-                if(!checkLoginNameIsOnly(user.getLoginName()))
+                if(checkLoginNameIsExistent(user.getLoginName()))
                     throw new UserUpdLoginNameRepeatException("login name is existent");
             }
 
