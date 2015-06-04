@@ -37,6 +37,8 @@ public class ComManuscript implements java.io.Serializable {
 	private String manuscriptPath;
 	private Integer status;
 	private Set<ComReferee> comReferees = new HashSet<ComReferee>(0);
+	private Set<ComManuscriptWorkType> comManuscriptWorkTypes = new HashSet<ComManuscriptWorkType>(
+			0);
 	private Set<ComManuscriptForm> comManuscriptForms = new HashSet<ComManuscriptForm>(
 			0);
 	private Set<ComPending> comPendings = new HashSet<ComPending>(0);
@@ -69,6 +71,7 @@ public class ComManuscript implements java.io.Serializable {
 			Integer manuscriptStatus, Timestamp createTime,
 			Timestamp updateTime, Timestamp refereeTime, String manuscriptPath,
 			Integer status, Set<ComReferee> comReferees,
+			Set<ComManuscriptWorkType> comManuscriptWorkTypes,
 			Set<ComManuscriptForm> comManuscriptForms,
 			Set<ComPending> comPendings) {
 		this.comUserByUpdatePersonId = comUserByUpdatePersonId;
@@ -83,6 +86,7 @@ public class ComManuscript implements java.io.Serializable {
 		this.manuscriptPath = manuscriptPath;
 		this.status = status;
 		this.comReferees = comReferees;
+		this.comManuscriptWorkTypes = comManuscriptWorkTypes;
 		this.comManuscriptForms = comManuscriptForms;
 		this.comPendings = comPendings;
 	}
@@ -209,6 +213,16 @@ public class ComManuscript implements java.io.Serializable {
 
 	public void setComReferees(Set<ComReferee> comReferees) {
 		this.comReferees = comReferees;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "comManuscript")
+	public Set<ComManuscriptWorkType> getComManuscriptWorkTypes() {
+		return this.comManuscriptWorkTypes;
+	}
+
+	public void setComManuscriptWorkTypes(
+			Set<ComManuscriptWorkType> comManuscriptWorkTypes) {
+		this.comManuscriptWorkTypes = comManuscriptWorkTypes;
 	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "comManuscript")

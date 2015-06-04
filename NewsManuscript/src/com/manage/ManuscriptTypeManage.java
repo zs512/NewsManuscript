@@ -99,9 +99,9 @@ public class ManuscriptTypeManage extends Manage{
                 throw new NullPointerException("manuscriptType's name is null");
             else if(!comManuscriptType.getManuscripterTypeName().equals(manuscriptType.getManuscripterTypeName())){
                 if(!checkSizeIsLegal(manuscriptType.getManuscripterTypeName(), 1, 32))
-                    throw new ManuscriptTypeUpdNameSizeException("size of manuscriptType'name is not in (0,32]");
+                    throw new ManuscriptTypeUpdNameSizeException("size of manuscriptType's name is not in (0,32]");
                 if(checkManuscriptTypeNameIsExistent(manuscriptType.getManuscripterTypeName()))
-                    throw new ManuscriptTypeUpdNameRepeatException("manuscriptType'name is existent");
+                    throw new ManuscriptTypeUpdNameRepeatException("manuscriptType's name is existent");
             }
         }catch(ManuscriptTypeUpdNotExistentException e){
             System.out.println(e.toString());

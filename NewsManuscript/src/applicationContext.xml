@@ -48,7 +48,8 @@
 				<value>com.domain.ComPosition</value>
 				<value>com.domain.ComManuscriptType</value>
 				<value>com.domain.ComDepartment</value>
-				<value>com.domain.ComForm</value></list>
+				<value>com.domain.ComForm</value>
+				<value>com.domain.ComManuscriptType</value></list>
 		</property></bean>
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
