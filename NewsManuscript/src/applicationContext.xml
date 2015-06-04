@@ -142,4 +142,14 @@
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
+	</bean>
+	<bean id="ComManuscriptWorkTypeDAO" class="com.dao.ComManuscriptWorkTypeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="ComWorkTypeDAO" class="com.dao.ComWorkTypeDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
 	</bean></beans>
