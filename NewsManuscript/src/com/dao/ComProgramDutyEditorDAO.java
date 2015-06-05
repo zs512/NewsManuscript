@@ -24,7 +24,7 @@ import com.domain.ComProgramDutyEditor;
  * transactions. Each of these methods provides additional information for how
  * to configure it for the desired type of transaction control.
  * 
- * @see com.domain.ComProgramDutyEditor
+ * @see ComProgramDutyEditor
  * @author MyEclipse Persistence Tools
  */
 @Transactional
@@ -70,7 +70,7 @@ public class ComProgramDutyEditorDAO {
 		}
 	}
 
-	public ComProgramDutyEditor findById(java.lang.String id) {
+	public ComProgramDutyEditor findById(String id) {
 		log.debug("getting ComProgramDutyEditor instance with id: " + id);
 		try {
 			ComProgramDutyEditor instance = (ComProgramDutyEditor) getCurrentSession()

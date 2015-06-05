@@ -24,7 +24,7 @@ import com.domain.ComProgramEditorCharge;
  * transactions. Each of these methods provides additional information for how
  * to configure it for the desired type of transaction control.
  * 
- * @see com.domain.ComProgramEditorCharge
+ * @see ComProgramEditorCharge
  * @author MyEclipse Persistence Tools
  */
 @Transactional
@@ -70,7 +70,7 @@ public class ComProgramEditorChargeDAO {
 		}
 	}
 
-	public ComProgramEditorCharge findById(java.lang.String id) {
+	public ComProgramEditorCharge findById(String id) {
 		log.debug("getting ComProgramEditorCharge instance with id: " + id);
 		try {
 			ComProgramEditorCharge instance = (ComProgramEditorCharge) getCurrentSession()

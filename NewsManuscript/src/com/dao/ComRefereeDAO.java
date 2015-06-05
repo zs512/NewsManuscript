@@ -25,7 +25,7 @@ import com.domain.ComReferee;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see com.domain.ComReferee
+ * @see ComReferee
  * @author MyEclipse Persistence Tools
  */
 @Transactional
@@ -72,7 +72,7 @@ public class ComRefereeDAO {
 		}
 	}
 
-	public ComReferee findById(java.lang.String id) {
+	public ComReferee findById(String id) {
 		log.debug("getting ComReferee instance with id: " + id);
 		try {
 			ComReferee instance = (ComReferee) getCurrentSession().get(

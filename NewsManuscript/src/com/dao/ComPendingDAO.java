@@ -24,7 +24,7 @@ import com.domain.ComPending;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see com.domain.ComPending
+ * @see ComPending
  * @author MyEclipse Persistence Tools
  */
 @Transactional
@@ -70,7 +70,7 @@ public class ComPendingDAO {
 		}
 	}
 
-	public ComPending findById(java.lang.String id) {
+	public ComPending findById(String id) {
 		log.debug("getting ComPending instance with id: " + id);
 		try {
 			ComPending instance = (ComPending) getCurrentSession().get(

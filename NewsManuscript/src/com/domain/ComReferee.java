@@ -21,8 +21,8 @@ public class ComReferee implements java.io.Serializable {
 	// Fields
 
 	private String refereeId;
-	private ComUser comUserByRefereePersonId;
-	private ComUser comUserByManuscriptTypeId;
+	private ComUser comUser;
+	private ComManuscriptType comManuscriptType;
 	private ComManuscript comManuscript;
 	private Timestamp refereeTime;
 	private Integer refereeResult;
@@ -35,11 +35,11 @@ public class ComReferee implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public ComReferee(ComUser comUserByRefereePersonId,
-			ComUser comUserByManuscriptTypeId, ComManuscript comManuscript,
-			Timestamp refereeTime, Integer refereeResult, Integer status) {
-		this.comUserByRefereePersonId = comUserByRefereePersonId;
-		this.comUserByManuscriptTypeId = comUserByManuscriptTypeId;
+	public ComReferee(ComUser comUser, ComManuscriptType comManuscriptType,
+			ComManuscript comManuscript, Timestamp refereeTime,
+			Integer refereeResult, Integer status) {
+		this.comUser = comUser;
+		this.comManuscriptType = comManuscriptType;
 		this.comManuscript = comManuscript;
 		this.refereeTime = refereeTime;
 		this.refereeResult = refereeResult;
@@ -61,22 +61,22 @@ public class ComReferee implements java.io.Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "referee_person_id", nullable = false)
-	public ComUser getComUserByRefereePersonId() {
-		return this.comUserByRefereePersonId;
+	public ComUser getComUser() {
+		return this.comUser;
 	}
 
-	public void setComUserByRefereePersonId(ComUser comUserByRefereePersonId) {
-		this.comUserByRefereePersonId = comUserByRefereePersonId;
+	public void setComUser(ComUser comUser) {
+		this.comUser = comUser;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "manuscript_type_id", nullable = false)
-	public ComUser getComUserByManuscriptTypeId() {
-		return this.comUserByManuscriptTypeId;
+	public ComManuscriptType getComManuscriptType() {
+		return this.comManuscriptType;
 	}
 
-	public void setComUserByManuscriptTypeId(ComUser comUserByManuscriptTypeId) {
-		this.comUserByManuscriptTypeId = comUserByManuscriptTypeId;
+	public void setComManuscriptType(ComManuscriptType comManuscriptType) {
+		this.comManuscriptType = comManuscriptType;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)

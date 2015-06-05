@@ -1,12 +1,11 @@
 package com.manage;
 
 
+import com.dao.ComDepartmentDAO;
+import com.domain.ComDepartment;
 import com.exceptions.departmentManage.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import com.dao.ComDepartmentDAO;
-import com.domain.ComDepartment;
 
 import java.util.List;
 

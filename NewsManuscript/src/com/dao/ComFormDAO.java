@@ -26,7 +26,7 @@ import com.domain.ComForm;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see com.domain.ComForm
+ * @see ComForm
  * @author MyEclipse Persistence Tools
  */
 @Transactional
@@ -72,7 +72,7 @@ public class ComFormDAO {
 		}
 	}
 
-	public ComForm findById(java.lang.String id) {
+	public ComForm findById(String id) {
 		log.debug("getting ComForm instance with id: " + id);
 		try {
 			ComForm instance = (ComForm) getCurrentSession().get(

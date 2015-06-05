@@ -24,7 +24,7 @@ import com.domain.ComProgramBoss;
  * transactions. Each of these methods provides additional information for how
  * to configure it for the desired type of transaction control.
  * 
- * @see com.domain.ComProgramBoss
+ * @see ComProgramBoss
  * @author MyEclipse Persistence Tools
  */
 @Transactional
@@ -70,7 +70,7 @@ public class ComProgramBossDAO {
 		}
 	}
 
-	public ComProgramBoss findById(java.lang.String id) {
+	public ComProgramBoss findById(String id) {
 		log.debug("getting ComProgramBoss instance with id: " + id);
 		try {
 			ComProgramBoss instance = (ComProgramBoss) getCurrentSession().get(

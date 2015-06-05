@@ -24,7 +24,7 @@ import com.domain.ComPosition;
  * transactions. Each of these methods provides additional information for how
  * to configure it for the desired type of transaction control.
  * 
- * @see com.domain.ComPosition
+ * @see ComPosition
  * @author MyEclipse Persistence Tools
  */
 @Transactional
@@ -71,7 +71,7 @@ public class ComPositionDAO {
 		}
 	}
 
-	public ComPosition findById(java.lang.String id) {
+	public ComPosition findById(String id) {
 		log.debug("getting ComPosition instance with id: " + id);
 		try {
 			ComPosition instance = (ComPosition) getCurrentSession().get(

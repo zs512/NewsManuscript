@@ -2,16 +2,10 @@ package com.test;
 
 import com.dao.ComDepartmentDAO;
 import com.dao.ComUserDAO;
+import com.domain.ComDepartment;
 import com.domain.ComUser;
-import com.manage.DepartmentManage;
-import com.manage.EmployeeManage;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import com.domain.ComDepartment;
-
-import java.sql.Timestamp;
-import java.util.List;
 
 public class TestMain {
 
@@ -22,9 +16,8 @@ public class TestMain {
 		ComUser comUser = new ComUser();
 		ComDepartmentDAO comDepartmentDAO = (ComDepartmentDAO)aContext.getBean("ComDepartmentDAO");
 		ComDepartment comDepartment = new ComDepartment();
-		comDepartment = comDepartmentDAO.findById("2ce4e7854d9d5a59014d9d5a5f6a0000");
 
-		comDepartmentDAO.delete(comDepartment);
+		comDepartment = comDepartmentDAO.findById(null);
 
 //		comUser.setLoginPassword("rqx");
 //		comUser.setComDepartment(comDepartment);

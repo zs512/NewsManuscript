@@ -25,7 +25,7 @@ import com.domain.ComManuscriptType;
  * transactions. Each of these methods provides additional information for how
  * to configure it for the desired type of transaction control.
  * 
- * @see com.domain.ComManuscriptType
+ * @see ComManuscriptType
  * @author MyEclipse Persistence Tools
  */
 @Transactional
@@ -72,7 +72,7 @@ public class ComManuscriptTypeDAO {
 		}
 	}
 
-	public ComManuscriptType findById(java.lang.String id) {
+	public ComManuscriptType findById(String id) {
 		log.debug("getting ComManuscriptType instance with id: " + id);
 		try {
 			ComManuscriptType instance = (ComManuscriptType) getCurrentSession()

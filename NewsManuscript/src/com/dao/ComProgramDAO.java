@@ -25,7 +25,7 @@ import com.domain.ComProgram;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see com.domain.ComProgram
+ * @see ComProgram
  * @author MyEclipse Persistence Tools
  */
 @Transactional
@@ -73,7 +73,7 @@ public class ComProgramDAO {
 		}
 	}
 
-	public ComProgram findById(java.lang.String id) {
+	public ComProgram findById(String id) {
 		log.debug("getting ComProgram instance with id: " + id);
 		try {
 			ComProgram instance = (ComProgram) getCurrentSession().get(

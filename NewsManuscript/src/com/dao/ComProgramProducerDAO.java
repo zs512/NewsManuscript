@@ -24,7 +24,7 @@ import com.domain.ComProgramProducer;
  * transactions. Each of these methods provides additional information for how
  * to configure it for the desired type of transaction control.
  * 
- * @see com.domain.ComProgramProducer
+ * @see ComProgramProducer
  * @author MyEclipse Persistence Tools
  */
 @Transactional
@@ -70,7 +70,7 @@ public class ComProgramProducerDAO {
 		}
 	}
 
-	public ComProgramProducer findById(java.lang.String id) {
+	public ComProgramProducer findById(String id) {
 		log.debug("getting ComProgramProducer instance with id: " + id);
 		try {
 			ComProgramProducer instance = (ComProgramProducer) getCurrentSession()

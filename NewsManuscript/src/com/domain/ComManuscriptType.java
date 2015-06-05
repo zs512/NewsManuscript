@@ -24,6 +24,7 @@ public class ComManuscriptType implements java.io.Serializable {
 	private String manuscriptTypeId;
 	private String manuscripterTypeName;
 	private Integer status;
+	private Set<ComReferee> comReferees = new HashSet<ComReferee>(0);
 	private Set<ComManuscript> comManuscripts = new HashSet<ComManuscript>(0);
 
 	// Constructors
@@ -40,9 +41,10 @@ public class ComManuscriptType implements java.io.Serializable {
 
 	/** full constructor */
 	public ComManuscriptType(String manuscripterTypeName, Integer status,
-			Set<ComManuscript> comManuscripts) {
+			Set<ComReferee> comReferees, Set<ComManuscript> comManuscripts) {
 		this.manuscripterTypeName = manuscripterTypeName;
 		this.status = status;
+		this.comReferees = comReferees;
 		this.comManuscripts = comManuscripts;
 	}
 
@@ -75,6 +77,15 @@ public class ComManuscriptType implements java.io.Serializable {
 
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "comManuscriptType")
+	public Set<ComReferee> getComReferees() {
+		return this.comReferees;
+	}
+
+	public void setComReferees(Set<ComReferee> comReferees) {
+		this.comReferees = comReferees;
 	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "comManuscriptType")

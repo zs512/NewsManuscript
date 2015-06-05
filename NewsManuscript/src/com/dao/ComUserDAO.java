@@ -25,7 +25,7 @@ import com.domain.ComUser;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see com.domain.ComUser
+ * @see ComUser
  * @author MyEclipse Persistence Tools
  */
 @Transactional
@@ -73,7 +73,7 @@ public class ComUserDAO {
 		}
 	}
 
-	public ComUser findById(java.lang.String id) {
+	public ComUser findById(String id) {
 		log.debug("getting ComUser instance with id: " + id);
 		try {
 			ComUser instance = (ComUser) getCurrentSession().get(

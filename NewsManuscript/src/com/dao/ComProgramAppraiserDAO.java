@@ -24,7 +24,7 @@ import com.domain.ComProgramAppraiser;
  * transactions. Each of these methods provides additional information for how
  * to configure it for the desired type of transaction control.
  * 
- * @see com.domain.ComProgramAppraiser
+ * @see ComProgramAppraiser
  * @author MyEclipse Persistence Tools
  */
 @Transactional
@@ -70,7 +70,7 @@ public class ComProgramAppraiserDAO {
 		}
 	}
 
-	public ComProgramAppraiser findById(java.lang.String id) {
+	public ComProgramAppraiser findById(String id) {
 		log.debug("getting ComProgramAppraiser instance with id: " + id);
 		try {
 			ComProgramAppraiser instance = (ComProgramAppraiser) getCurrentSession()

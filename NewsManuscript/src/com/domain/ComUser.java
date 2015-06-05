@@ -46,14 +46,11 @@ public class ComUser implements java.io.Serializable {
 	private Set<ComPosition> comPositions = new HashSet<ComPosition>(0);
 	private Set<ComManuscript> comManuscriptsForUpdatePersonId = new HashSet<ComManuscript>(
 			0);
-	private Set<ComReferee> comRefereesForManuscriptTypeId = new HashSet<ComReferee>(
-			0);
 	private Set<ComProgramProducer> comProgramProducers = new HashSet<ComProgramProducer>(
 			0);
 	private Set<ComPending> comPendings = new HashSet<ComPending>(0);
 	private Set<ComForm> comFormsForEditorChargeId = new HashSet<ComForm>(0);
-	private Set<ComReferee> comRefereesForRefereePersonId = new HashSet<ComReferee>(
-			0);
+	private Set<ComReferee> comReferees = new HashSet<ComReferee>(0);
 
 	// Constructors
 
@@ -84,11 +81,9 @@ public class ComUser implements java.io.Serializable {
 			Set<ComProgramAppraiser> comProgramAppraisers,
 			Set<ComPosition> comPositions,
 			Set<ComManuscript> comManuscriptsForUpdatePersonId,
-			Set<ComReferee> comRefereesForManuscriptTypeId,
 			Set<ComProgramProducer> comProgramProducers,
 			Set<ComPending> comPendings,
-			Set<ComForm> comFormsForEditorChargeId,
-			Set<ComReferee> comRefereesForRefereePersonId) {
+			Set<ComForm> comFormsForEditorChargeId, Set<ComReferee> comReferees) {
 		this.comDepartment = comDepartment;
 		this.loginName = loginName;
 		this.loginPassword = loginPassword;
@@ -104,11 +99,10 @@ public class ComUser implements java.io.Serializable {
 		this.comProgramAppraisers = comProgramAppraisers;
 		this.comPositions = comPositions;
 		this.comManuscriptsForUpdatePersonId = comManuscriptsForUpdatePersonId;
-		this.comRefereesForManuscriptTypeId = comRefereesForManuscriptTypeId;
 		this.comProgramProducers = comProgramProducers;
 		this.comPendings = comPendings;
 		this.comFormsForEditorChargeId = comFormsForEditorChargeId;
-		this.comRefereesForRefereePersonId = comRefereesForRefereePersonId;
+		this.comReferees = comReferees;
 	}
 
 	// Property accessors
@@ -265,16 +259,6 @@ public class ComUser implements java.io.Serializable {
 		this.comManuscriptsForUpdatePersonId = comManuscriptsForUpdatePersonId;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "comUserByManuscriptTypeId")
-	public Set<ComReferee> getComRefereesForManuscriptTypeId() {
-		return this.comRefereesForManuscriptTypeId;
-	}
-
-	public void setComRefereesForManuscriptTypeId(
-			Set<ComReferee> comRefereesForManuscriptTypeId) {
-		this.comRefereesForManuscriptTypeId = comRefereesForManuscriptTypeId;
-	}
-
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "comUser")
 	public Set<ComProgramProducer> getComProgramProducers() {
 		return this.comProgramProducers;
@@ -304,14 +288,13 @@ public class ComUser implements java.io.Serializable {
 		this.comFormsForEditorChargeId = comFormsForEditorChargeId;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "comUserByRefereePersonId")
-	public Set<ComReferee> getComRefereesForRefereePersonId() {
-		return this.comRefereesForRefereePersonId;
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "comUser")
+	public Set<ComReferee> getComReferees() {
+		return this.comReferees;
 	}
 
-	public void setComRefereesForRefereePersonId(
-			Set<ComReferee> comRefereesForRefereePersonId) {
-		this.comRefereesForRefereePersonId = comRefereesForRefereePersonId;
+	public void setComReferees(Set<ComReferee> comReferees) {
+		this.comReferees = comReferees;
 	}
 
 }

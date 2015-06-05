@@ -25,7 +25,7 @@ import com.domain.ComDepartment;
  * transactions. Each of these methods provides additional information for how
  * to configure it for the desired type of transaction control.
  * 
- * @see com.domain.ComDepartment
+ * @see ComDepartment
  * @author MyEclipse Persistence Tools
  */
 @Transactional
@@ -73,7 +73,7 @@ public class ComDepartmentDAO {
 		}
 	}
 
-	public ComDepartment findById(java.lang.String id) {
+	public ComDepartment findById(String id) {
 		log.debug("getting ComDepartment instance with id: " + id);
 		try {
 			ComDepartment instance = (ComDepartment) getCurrentSession().get(
