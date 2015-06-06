@@ -41,10 +41,10 @@ public class ProgramProducerManage extends ProgramRelevant{
             if(!checkUserNotNullAndExistent(programProducer.getComUser()))
                 throw new ProgramProducerAddUserNotExistentException("programProducer's user is null or is not exception");
         }catch(ProgramProducerAddProgramNotExsitentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramProducerCheckBeforeAddException();
         }catch(ProgramProducerAddUserNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramProducerCheckBeforeAddException();
         }
     }
@@ -65,7 +65,7 @@ public class ProgramProducerManage extends ProgramRelevant{
                 throw new ProgramProducerDelNotExistentException("programProducer is not existent");
 
         }catch(ProgramProducerDelNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramProducerCheckBeforeDelException();
         }
     }
@@ -76,7 +76,7 @@ public class ProgramProducerManage extends ProgramRelevant{
             /*
              * check object
              */
-            if (programProducer == null)
+            if (programProducer == null || programProducer.getProgramProducerId() == null)
                 throw new NullPointerException("programProducer is null");
 
             /*
@@ -98,13 +98,13 @@ public class ProgramProducerManage extends ProgramRelevant{
                 throw new ProgramProducerUpdUserNotExistentException("programProducer's user is null or is not existent");
 
         }catch(ProgramProducerUpdNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramProducerCheckBeforeUpdException();
         }catch(ProgramProducerUpdProgramNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramProducerCheckBeforeUpdException();
         }catch(ProgramProducerUpdUserNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramProducerCheckBeforeUpdException();
         }
     }
@@ -117,7 +117,7 @@ public class ProgramProducerManage extends ProgramRelevant{
             programProducer.setStatus(0);
             comProgramProducerDAO.save(programProducer);
         }catch(ProgramProducerCheckBeforeAddException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 
@@ -129,7 +129,7 @@ public class ProgramProducerManage extends ProgramRelevant{
             programProducer.setStatus(1);
             comProgramProducerDAO.attachDirty(programProducer);
         }catch(ProgramProducerCheckBeforeDelException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 
@@ -141,7 +141,7 @@ public class ProgramProducerManage extends ProgramRelevant{
             programProducer.setStatus(0);
             comProgramProducerDAO.attachDirty(programProducer);
         }catch(ProgramProducerCheckBeforeUpdException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 }

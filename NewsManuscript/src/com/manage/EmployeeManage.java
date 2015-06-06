@@ -72,20 +72,22 @@ public class EmployeeManage extends Manage{
              */
             if(user.getComDepartment() == null)
                 throw new NullPointerException("user's department is null");
+            else if(user.getComDepartment().getDepartmentId() == null)
+                throw new NullPointerException("user's department's id is null");
             else if(!checkDepartmentIsExistent(user.getComDepartment().getDepartmentId()))
                 throw new UserAddDepartmentNotExistentException("user's department is not existent");
 
         }catch(UserAddLoginNameSizeException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new UserCheckBeforeAddException();
         }catch(UserAddLoginNameNotOnlyException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new UserCheckBeforeAddException();
         }catch(UserAddNameSizeException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new UserCheckBeforeAddException();
         }catch(UserAddDepartmentNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new UserCheckBeforeAddException();
         }
     }
@@ -106,7 +108,7 @@ public class EmployeeManage extends Manage{
                 throw new UserDelUserNotExistentException("user is not existent");
 
         }catch(UserDelUserNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new UserCheckBeforeDelException();
         }
     }
@@ -158,23 +160,25 @@ public class EmployeeManage extends Manage{
              */
             if(user.getComDepartment() == null)
                 throw new NullPointerException("department is null");
+            else if(user.getComDepartment().getDepartmentId() == null)
+                throw new NullPointerException("user's department's id is null");
             if(!checkDepartmentIsExistent(user.getComDepartment().getDepartmentId()))
                 throw new UserUpdDepartmentNotExistentException("department is not existent");
 
         }catch(UserUpdUserNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new UserCheckBeforeUpdException();
         }catch(UserUpdLoginNameRepeatException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new UserCheckBeforeUpdException();
         }catch(UserUpdLoginNameSizeException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new UserCheckBeforeUpdException();
         }catch(UserUpdNameSizeException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new UserCheckBeforeUpdException();
         }catch(UserUpdDepartmentNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new UserCheckBeforeUpdException();
         }
     }
@@ -190,7 +194,7 @@ public class EmployeeManage extends Manage{
             comUserDAO.save(user);
 
         }catch(UserCheckBeforeAddException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 
@@ -205,7 +209,7 @@ public class EmployeeManage extends Manage{
             comUserDAO.attachDirty(user);
 
         }catch(UserCheckBeforeDelException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 
@@ -219,7 +223,7 @@ public class EmployeeManage extends Manage{
             comUserDAO.attachDirty(user);
 
         }catch(UserCheckBeforeUpdException e){
-           System.out.println(e.toString());
+           e.printStackTrace();
         }
     }
 }

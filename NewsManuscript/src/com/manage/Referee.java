@@ -53,19 +53,31 @@ public class Referee extends Manage{
             /*
              * check referee person
              */
-            if(!checkRefereePersonIsExistent(referee.getComUser().getUserId()))
+            if(referee.getComUser() == null)
+                throw new NullPointerException("referee's person is null");
+            else if(referee.getComUser().getUserId() == null)
+                throw new NullPointerException("referee's person's id is null");
+            else if(!checkRefereePersonIsExistent(referee.getComUser().getUserId()))
                 throw new RefereeAddRefereePersonNotExistentException("referee person is null or is not existent");
 
             /*
              * check manuscript type
              */
-            if(!checkManuscriptTypeIsExistent(referee.getComManuscriptType().getManuscriptTypeId()))
+            if(referee.getComManuscriptType() == null)
+                throw new NullPointerException("referee's manuscriptType is null");
+            else if(referee.getComManuscriptType().getManuscriptTypeId() == null)
+                throw new NullPointerException("referee's manuscriptType's id is null");
+            else if(!checkManuscriptTypeIsExistent(referee.getComManuscriptType().getManuscriptTypeId()))
                 throw new RefereeAddManuscriptTypeNotExistentException("manuscriptType is null or is not existent");
 
             /*
              * check manuscript
              */
-            if(!checkManuscriptIsExistent(referee.getComManuscript().getManuscriptId()))
+            if(referee.getComManuscript() == null)
+                throw new NullPointerException("referee's manuscript is null");
+            else if(referee.getComManuscript().getManuscriptId() == null)
+                throw new NullPointerException("referee's manuscript's id is null");
+            else if(!checkManuscriptIsExistent(referee.getComManuscript().getManuscriptId()))
                 throw new RefereeAddManuscriptNotExistentException("manuscript is null or is not existent");
 
             /*
@@ -82,16 +94,16 @@ public class Referee extends Manage{
 
 
         }catch(RefereeAddRefereePersonNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new RefereeCheckBeforeAddException();
         }catch(RefereeAddManuscriptTypeNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new RefereeCheckBeforeAddException();
         }catch(RefereeAddManuscriptNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new RefereeCheckBeforeAddException();
         }catch(RefereeAddResultException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new RefereeCheckBeforeAddException();
         }
     }

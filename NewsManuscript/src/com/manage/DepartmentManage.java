@@ -60,10 +60,10 @@ public class DepartmentManage extends Manage{
 			}
 
 		}catch(DepartmentNameSizeException e){
-			System.out.println(e.toString());
+			e.printStackTrace();
 			throw new DepartmentCheckBeforeAddException();
 		}catch(DepartmentNameException e){
-			System.out.println(e.toString());
+			e.printStackTrace();
 			throw new DepartmentCheckBeforeAddException();
 		}
 
@@ -90,10 +90,10 @@ public class DepartmentManage extends Manage{
 				throw new DepartmentDelSubdepartmentExistentException("department has some sub-departments");
 
 		}catch(DepartmentDelNotExistentException e){
-			System.out.println(e.toString());
+			e.printStackTrace();
 			throw new DepartmentCheckBeforeDelException();
 		}catch(DepartmentDelSubdepartmentExistentException e){
-			System.out.println(e.toString());
+			e.printStackTrace();
 			throw new DepartmentCheckBeforeDelException();
 		}
 	}
@@ -136,13 +136,13 @@ public class DepartmentManage extends Manage{
 					throw new NullPointerException("parent-department is not existent");
 			}
 		}catch(DepartmentUpdNotExistentException e){
-			System.out.println(e.toString());
+			e.printStackTrace();
 			throw new DepartmentCheckBeforeUpdException();
 		}catch(DepartmentNameSizeException e){
-			System.out.println(e.toString());
+			e.printStackTrace();
 			throw new DepartmentCheckBeforeUpdException();
 		}catch(DepartmentNameException e) {
-			System.out.println(e.toString());
+			e.printStackTrace();
 			throw new DepartmentCheckBeforeUpdException();
 		}
 	}
@@ -156,7 +156,7 @@ public class DepartmentManage extends Manage{
 			department.setStatus(0);
 			comDepartmentDAO.save(department);
 		}catch(DepartmentCheckBeforeAddException e){
-			System.out.println(e.toString());
+			e.printStackTrace();
 		}
 
 	}
@@ -171,7 +171,7 @@ public class DepartmentManage extends Manage{
 			comDepartmentDAO.attachDirty(department);
 
 		}catch(DepartmentCheckBeforeDelException e){
-			System.out.println(e.toString());
+			e.printStackTrace();
 		}
 	}
 
@@ -184,7 +184,7 @@ public class DepartmentManage extends Manage{
 			comDepartmentDAO.attachDirty(department);
 
 		}catch(DepartmentCheckBeforeUpdException e){
-			System.out.println(e.toString());
+			e.printStackTrace();
 		}
 	}
 

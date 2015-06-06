@@ -61,10 +61,10 @@ public class ManuscriptWorkTypeManage extends Manage{
                 throw new ManuscriptWorkTypeAddManuscriptNotExistentException("manuscript is not existent");
 
         }catch(ManuscriptWorkTypeAddWorkTypeNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptWorkTypeCheckBeforeAddException();
         }catch(ManuscriptWorkTypeAddManuscriptNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptWorkTypeCheckBeforeAddException();
         }
     }
@@ -85,7 +85,7 @@ public class ManuscriptWorkTypeManage extends Manage{
                 throw new ManuscriptWorkTypeDelNotExistentException("manuscriptWorkType is not existent");
 
         }catch(ManuscriptWorkTypeDelNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptWorkTypeCheckBeforeDelException();
         }
     }
@@ -99,7 +99,7 @@ public class ManuscriptWorkTypeManage extends Manage{
             comManuscriptWorkTypeDAO.save(manuscriptWorkType);
 
         }catch(ManuscriptWorkTypeCheckBeforeAddException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 
@@ -111,7 +111,7 @@ public class ManuscriptWorkTypeManage extends Manage{
             manuscriptWorkType.setStatus(0);
             comManuscriptWorkTypeDAO.attachDirty(manuscriptWorkType);
         }catch(ManuscriptWorkTypeCheckBeforeDelException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 }

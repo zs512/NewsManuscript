@@ -40,10 +40,10 @@ public class ProgramAppraiser extends ProgramRelevant{
             if(!checkUserNotNullAndExistent(programAppraiser.getComUser()))
                 throw new ProgramAppraiserAddUserNotExistentException("programAppraiser's user is null or is not existent");
         }catch(ProgramAppraiserAddProgramNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramAppraiserCheckBeforeAddException();
         }catch(ProgramAppraiserAddUserNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramAppraiserCheckBeforeAddException();
         }
     }
@@ -63,7 +63,7 @@ public class ProgramAppraiser extends ProgramRelevant{
             if(!checkProgramAppraiserIsExistent(programAppraiser.getProgramAppraiserId()))
                 throw new ProgramAppraiserDelNotExistentException("programAppraiser is not existent");
         }catch(ProgramAppraiserDelNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramAppraiserCheckBeforeDelException();
         }
     }
@@ -96,13 +96,13 @@ public class ProgramAppraiser extends ProgramRelevant{
                 throw new ProgramAppraiserUpdUserNotExistentException("programAppraiser's user is null or is not existent");
 
         }catch(ProgramAppraiserUpdNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramAppraiserCheckBeforeUpdException();
         }catch(ProgramAppraiserUpdProgramNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramAppraiserCheckBeforeUpdException();
         }catch(ProgramAppraiserUpdUserNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramAppraiserCheckBeforeUpdException();
         }
 
@@ -116,7 +116,7 @@ public class ProgramAppraiser extends ProgramRelevant{
             programAppraiser.setStatus(0);
             comProgramAppraiserDAO.save(programAppraiser);
         }catch(ProgramAppraiserCheckBeforeAddException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 
@@ -128,7 +128,7 @@ public class ProgramAppraiser extends ProgramRelevant{
             programAppraiser.setStatus(1);
             comProgramAppraiserDAO.attachDirty(programAppraiser);
         }catch(ProgramAppraiserCheckBeforeDelException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 
@@ -140,7 +140,7 @@ public class ProgramAppraiser extends ProgramRelevant{
             programAppraiser.setStatus(0);
             comProgramAppraiserDAO.attachDirty(programAppraiser);
         }catch(ProgramAppraiserCheckBeforeUpdException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 }

@@ -49,6 +49,8 @@ public class ManuscriptManage extends Manage{
              */
             if(manuscript.getComUserByAuthorId() == null)
                 throw new NullPointerException("manuscript's author is null");
+            else if(manuscript.getComUserByAuthorId().getUserId() == null)
+                throw new NullPointerException("manuscript's author's id is null");
             else if(!checkUserIsExistent(manuscript.getComUserByAuthorId().getUserId()))
                 throw new ManuscriptAddAuthorNotExistentException("manuscript's author is not existent");
 
@@ -57,6 +59,8 @@ public class ManuscriptManage extends Manage{
              */
             if(manuscript.getComUserByUpdatePersonId() == null)
                 throw new NullPointerException("manuscript's update person is null");
+            else if(manuscript.getComUserByUpdatePersonId().getUserId() == null)
+                throw new NullPointerException("manuscript's update person's id is null");
             else if(!checkUserIsExistent(manuscript.getComUserByUpdatePersonId().getUserId()))
                 throw new ManuscriptAddUpdatePersonNotExistentException("manuscript's update person is not existent");
 
@@ -65,6 +69,8 @@ public class ManuscriptManage extends Manage{
              */
             if(manuscript.getComManuscriptType() == null)
                 throw new NullPointerException("manuscript's manuscriptType is null");
+            else if(manuscript.getComManuscriptType().getManuscriptTypeId() == null)
+                throw new NullPointerException("manuscript's manuscriptType's id is null");
             else if(!checkManuscriptTypeIsExistent(manuscript.getComManuscriptType().getManuscriptTypeId()))
                 throw new ManuscriptAddManuscriptTypeNotExistentException("manuscript's manuscriptType is not existent");
 
@@ -105,25 +111,25 @@ public class ManuscriptManage extends Manage{
                 throw new ManuscriptAddPathSizeException("file's path is not in (0, 500]");
 
         }catch(ManuscriptAddAuthorNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptCheckBeforeAddException();
         }catch(ManuscriptAddUpdatePersonNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptCheckBeforeAddException();
         }catch(ManuscriptAddManuscriptTypeNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptCheckBeforeAddException();
         }catch(ManuscriptAddTitleSizeException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptCheckBeforeAddException();
         }catch(ManuscriptAddBodySizeException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptCheckBeforeAddException();
         }catch(ManuscriptAddCreateUpdateTimeCompareException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptCheckBeforeAddException();
         }catch(ManuscriptAddPathSizeException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptCheckBeforeAddException();
         }
     }
@@ -143,7 +149,7 @@ public class ManuscriptManage extends Manage{
             if(!checkManuscriptIsExistent(manuscript.getManuscriptId()))
                 throw new ManuscriptDelNotExistentException("manuscript is not existent");
         }catch(ManuscriptDelNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptCheckBeforeDelException();
         }
     }
@@ -168,6 +174,8 @@ public class ManuscriptManage extends Manage{
              */
             if(manuscript.getComUserByAuthorId() == null)
                 throw new NullPointerException("manuscript's author is null");
+            else if(manuscript.getComUserByAuthorId().getUserId() == null)
+                throw new NullPointerException("manuscript's author's id is null");
             else if(!checkUserIsExistent(manuscript.getComUserByAuthorId().getUserId()))
                 throw new ManuscriptUpdAuthorNotExistentException("manuscript's author is not existent");
 
@@ -176,6 +184,8 @@ public class ManuscriptManage extends Manage{
              */
             if(manuscript.getComUserByUpdatePersonId() == null)
                 throw new NullPointerException("manuscript's update person is null");
+            else if(manuscript.getComUserByUpdatePersonId().getUserId() == null)
+                throw new NullPointerException("manuscript's update person's id is null");
             else if(!checkUserIsExistent(manuscript.getComUserByUpdatePersonId().getUserId()))
                 throw new ManuscriptUpdUpdatePersonNotExistentException("manuscript's update person is not existent");
 
@@ -184,6 +194,8 @@ public class ManuscriptManage extends Manage{
              */
             if(manuscript.getComManuscriptType() == null)
                 throw new NullPointerException("manuscript's manuscriptType is null");
+            else if(manuscript.getComManuscriptType().getManuscriptTypeId() == null)
+                throw new NullPointerException("manuscript's manuscriptType's id is null");
             else if(!checkManuscriptTypeIsExistent(manuscript.getComManuscriptType().getManuscriptTypeId()))
                 throw new ManuscriptUpdManuscriptTypeNotExistentException("manuscript's manuscriptType is not existent");
 
@@ -230,31 +242,31 @@ public class ManuscriptManage extends Manage{
                 throw new ManuscriptUpdPathSizeException("file's path is not in (0, 500]");
 
         }catch(ManuscriptUpdNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptCheckBeforeUpdException();
         }catch(ManuscriptUpdAuthorNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptCheckBeforeUpdException();
         }catch(ManuscriptUpdUpdatePersonNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptCheckBeforeUpdException();
         }catch(ManuscriptUpdManuscriptTypeNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptCheckBeforeUpdException();
         }catch(ManuscriptUpdTitleSizeException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptCheckBeforeUpdException();
         }catch(ManuscriptUpdBodySizeException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptCheckBeforeUpdException();
         }catch(ManuscriptUpdManuscriptStatusException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptCheckBeforeUpdException();
         }catch(ManuscriptUpdCreateUpdateTimeCompareException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptCheckBeforeUpdException();
         }catch(ManuscriptUpdPathSizeException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptCheckBeforeUpdException();
         }
     }
@@ -268,7 +280,7 @@ public class ManuscriptManage extends Manage{
             manuscript.setStatus(0);
             comManuscriptDAO.save(manuscript);
         }catch(ManuscriptCheckBeforeAddException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 
@@ -280,7 +292,7 @@ public class ManuscriptManage extends Manage{
             manuscript.setStatus(1);
             comManuscriptDAO.attachDirty(manuscript);
         }catch(ManuscriptCheckBeforeDelException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 
@@ -292,7 +304,7 @@ public class ManuscriptManage extends Manage{
             manuscript.setStatus(0);
             comManuscriptDAO.attachDirty(manuscript);
         }catch(ManuscriptCheckBeforeUpdException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 }

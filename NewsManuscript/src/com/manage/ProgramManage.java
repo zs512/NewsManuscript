@@ -16,9 +16,9 @@ public class ProgramManage extends Manage{
     ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
     ComProgramDAO comProgramDAO = (ComProgramDAO) applicationContext.getBean("ComProgramDAO");
 
-    private boolean checkNameIsOnly(String programName){
+    private boolean checkNameIsExistent(String programName){
         List<ComProgram> comProgramList = comProgramDAO.findByProgramName(programName);
-        return (comProgramList == null || comProgramList.size() <= 0);
+        return (comProgramList != null || comProgramList.size() > 0);
     }
 
     private boolean checkProgramIsExistent(String programId){
@@ -42,7 +42,7 @@ public class ProgramManage extends Manage{
                 throw new NullPointerException("program's name is null");
             else if(!checkSizeIsLegal(program.getProgramName(), 1, 32))
                 throw new ProgramAddNameSizeException("size of program's name is not in (0, 32]");
-            else if(!checkNameIsOnly(program.getProgramName()))
+            else if(checkNameIsExistent(program.getProgramName()))
                 throw new ProgramAddNameNotOnlyException("program's name is existent");
 
             /*
@@ -53,13 +53,13 @@ public class ProgramManage extends Manage{
                     throw new ProgramAddDescribeSizeException("size of program's describe is not in [0, 500]");
 
         }catch(ProgramAddNameSizeException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramCheckBeforeAddException();
         }catch(ProgramAddNameNotOnlyException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramCheckBeforeAddException();
         }catch(ProgramAddDescribeSizeException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramCheckBeforeAddException();
         }
 
@@ -80,7 +80,7 @@ public class ProgramManage extends Manage{
             if(!checkProgramIsExistent(program.getProgramId()))
                 throw new ProgramDelProgramNotExistentException("program is not existent");
         }catch(ProgramDelProgramNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramCheckBeforeDelException();
         }
 
@@ -111,7 +111,7 @@ public class ProgramManage extends Manage{
             else if(!checkSizeIsLegal(program.getProgramName(), 1, 32))
                 throw new ProgramUpdNameSizeException("size of program's name is not in (0, 32]");
             else if(!comProgram.getProgramName().equals(program.getProgramName())){
-                if(!checkNameIsOnly(program.getProgramName()))
+                if(checkNameIsExistent(program.getProgramName()))
                     throw new ProgramUpdNameNotOnlyException("program's name is Existent");
             }
 
@@ -123,16 +123,16 @@ public class ProgramManage extends Manage{
                     throw new ProgramUpdDescribeSizeException("size of program's describe is not in [0, 500]");
 
         }catch(ProgramUpdProgramNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramCheckBeforeUpdException();
         }catch(ProgramUpdNameSizeException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramCheckBeforeUpdException();
         }catch(ProgramUpdNameNotOnlyException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramCheckBeforeUpdException();
         }catch(ProgramUpdDescribeSizeException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramCheckBeforeUpdException();
         }
     }
@@ -146,7 +146,7 @@ public class ProgramManage extends Manage{
             comProgramDAO.save(program);
 
         }catch(ProgramCheckBeforeAddException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
 
     }
@@ -160,7 +160,7 @@ public class ProgramManage extends Manage{
             comProgramDAO.attachDirty(program);
 
         }catch(ProgramCheckBeforeDelException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
 
     }
@@ -174,7 +174,7 @@ public class ProgramManage extends Manage{
 
             comProgramDAO.attachDirty(program);
         }catch(ProgramCheckBeforeUpdException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 }

@@ -44,7 +44,7 @@ public class WorkTypeManage extends Manage{
                 throw new WorkTypeAddNameSizeException("size of workType's name is not in (0, 32]");
 
         }catch(WorkTypeAddNameSizeException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new WorkTypeCheckBeforeAddException();
         }
     }
@@ -64,7 +64,7 @@ public class WorkTypeManage extends Manage{
             if(!checkWorkTypeIsExistent(workType.getWorkTypeId()))
                 throw new WorkTypeDelNotExistentException("WorkType is not existent");
         }catch(WorkTypeDelNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new WorkTypeCheckBeforeDelException();
         }
     }
@@ -87,15 +87,17 @@ public class WorkTypeManage extends Manage{
             /*
              * check name
              */
+            if(workType.getWorkTypeName() == null)
+                throw new NullPointerException("workType's name is null");
             ComWorkType comWorkType = comWorkTypeDAO.findById(workType.getWorkTypeId());
             if(!comWorkType.getWorkTypeName().equals(workType.getWorkTypeName()))
                 if(checkNameIsExistent(workType.getWorkTypeName()))
                     throw new WorkTypeUpdNameRepeatException("workType's name is repeat");
         }catch(WorkTypeUpdNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new WorkTypeCheckBeforeUpdException();
         }catch(WorkTypeUpdNameRepeatException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new WorkTypeCheckBeforeUpdException();
         }
     }
@@ -108,7 +110,7 @@ public class WorkTypeManage extends Manage{
             workType.setStatus(0);
             comWorkTypeDAO.save(workType);
         }catch(WorkTypeCheckBeforeAddException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
 
     }
@@ -121,7 +123,7 @@ public class WorkTypeManage extends Manage{
             workType.setStatus(1);
             comWorkTypeDAO.attachDirty(workType);
         }catch(WorkTypeCheckBeforeDelException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 
@@ -133,7 +135,7 @@ public class WorkTypeManage extends Manage{
             workType.setStatus(0);
             comWorkTypeDAO.attachDirty(workType);
         }catch(WorkTypeCheckBeforeUpdException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 }

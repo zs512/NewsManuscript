@@ -41,10 +41,10 @@ public class ProgramBossManage extends ProgramRelevant{
                 throw new ProgramBossAddUserNotExistentException("programBoss is null or is not existent");
 
         }catch(ProgramBossAddProgramNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramBossCheckBeforeAddException();
         }catch(ProgramBossAddUserNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramBossCheckBeforeAddException();
         }
 
@@ -67,7 +67,7 @@ public class ProgramBossManage extends ProgramRelevant{
                 throw new ProgramBossDelNotExistentException("programBoss is not existent");
 
         }catch(ProgramBossDelNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramBossCheckBeforeDelException();
         }
 
@@ -101,13 +101,13 @@ public class ProgramBossManage extends ProgramRelevant{
                 throw new ProgramBossUpdUserNotExistentException("program's user is null or is not existent");
 
         }catch(ProgramBossUpdNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramBossCheckBeforeUpdException();
         }catch(ProgramBossUpdProgramNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramBossCheckBeforeUpdException();
         }catch(ProgramBossUpdUserNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramBossCheckBeforeUpdException();
         }
     }
@@ -120,7 +120,7 @@ public class ProgramBossManage extends ProgramRelevant{
             programBoss.setStatus(0);
             comProgramBossDAO.save(programBoss);
         }catch(ProgramBossCheckBeforeAddException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 
@@ -132,7 +132,7 @@ public class ProgramBossManage extends ProgramRelevant{
             programBoss.setStatus(1);
             comProgramBossDAO.attachDirty(programBoss);
         }catch(ProgramBossCheckBeforeDelException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
 
     }
@@ -145,7 +145,7 @@ public class ProgramBossManage extends ProgramRelevant{
             programBoss.setStatus(0);
             comProgramBossDAO.attachDirty(programBoss);
         }catch(ProgramBossCheckBeforeUpdException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 }

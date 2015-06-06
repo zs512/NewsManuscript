@@ -44,10 +44,10 @@ public class ProgramEditorChargeManage extends ProgramRelevant{
             if(!checkUserNotNullAndExistent(programEditorCharge.getComUser()))
                 throw new ProgramEditorChargeAddUserNotExistentException("user is null or is not existent");
         }catch(ProgramEditorChargeAddProgramNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramEditorChargeCheckBeforeAddException();
         }catch(ProgramEditorChargeAddUserNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramEditorChargeCheckBeforeAddException();
         }
     }
@@ -69,7 +69,7 @@ public class ProgramEditorChargeManage extends ProgramRelevant{
             else if(!checkProgramEditorChargeIsExistent(programEditorCharge.getProgramEditorChargeId()))
                 throw new ProgramEditorChargeDelNotExistent("programEditorCharge is not existent");
         }catch(ProgramEditorChargeDelNotExistent e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramEditorChargeCheckBeforeDelException();
         }
     }
@@ -80,7 +80,7 @@ public class ProgramEditorChargeManage extends ProgramRelevant{
             /*
              * check object
              */
-            if (programEditorCharge == null)
+            if (programEditorCharge == null || programEditorCharge.getProgramEditorChargeId() == null)
                 throw new NullPointerException("programEditorCharge is null");
 
             /*
@@ -102,13 +102,13 @@ public class ProgramEditorChargeManage extends ProgramRelevant{
                 throw new ProgramEditorChargeUpdUserNotExistentException("user is null or is not existent");
 
         }catch(ProgramEditorChargeUpdNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramEditorChargeCheckBeforeUpdException();
         }catch(ProgramEditorChargeAddProgramNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramEditorChargeCheckBeforeUpdException();
         }catch(ProgramEditorChargeUpdUserNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramEditorChargeCheckBeforeUpdException();
         }
     }
@@ -121,7 +121,7 @@ public class ProgramEditorChargeManage extends ProgramRelevant{
             programEditorCharge.setStatus(0);
             comProgramEditorChargeDAO.save(programEditorCharge);
         }catch(ProgramEditorChargeCheckBeforeAddException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
 
     }
@@ -135,7 +135,7 @@ public class ProgramEditorChargeManage extends ProgramRelevant{
             comProgramEditorChargeDAO.attachDirty(programEditorCharge);
 
         }catch(ProgramEditorChargeCheckBeforeDelException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 
@@ -148,7 +148,7 @@ public class ProgramEditorChargeManage extends ProgramRelevant{
             comProgramEditorChargeDAO.attachDirty(programEditorCharge);
 
         }catch(ProgramEditorChargeCheckBeforeUpdException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 }

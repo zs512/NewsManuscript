@@ -41,10 +41,10 @@ public class ProgramChiefManage extends ProgramRelevant{
                 throw new ProgramChiefAddUserNotExistentException("programChief's user is null or is not existent");
 
         }catch(ProgramChiefAddProgramNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramChiefCheckBeforeAddException();
         }catch(ProgramChiefAddUserNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramChiefCheckBeforeAddException();
         }
     }
@@ -65,7 +65,7 @@ public class ProgramChiefManage extends ProgramRelevant{
                 throw new ProgramChiefDelNotExistentException("programChief is not existent");
 
         }catch(ProgramChiefDelNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramChiefCheckBeforeDelException();
         }
     }
@@ -99,13 +99,13 @@ public class ProgramChiefManage extends ProgramRelevant{
                 throw new ProgramChiefUpdUserNotExistentException("programChief's user is not existent");
 
         }catch(ProgramChiefUpdNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramChiefCheckBeforeUpdException();
         }catch(ProgramChiefUpdProgramNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramChiefCheckBeforeUpdException();
         }catch(ProgramChiefUpdUserNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ProgramChiefCheckBeforeUpdException();
         }
     }
@@ -118,7 +118,7 @@ public class ProgramChiefManage extends ProgramRelevant{
             programChief.setStatus(0);
             comProgramChiefDAO.save(programChief);
         }catch(ProgramChiefCheckBeforeAddException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 
@@ -131,7 +131,7 @@ public class ProgramChiefManage extends ProgramRelevant{
             programChief.setStatus(1);
             comProgramChiefDAO.attachDirty(programChief);
         }catch(ProgramChiefCheckBeforeDelException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
 
     }
@@ -144,7 +144,7 @@ public class ProgramChiefManage extends ProgramRelevant{
             programChief.setStatus(0);
             comProgramChiefDAO.attachDirty(programChief);
         }catch(ProgramChiefCheckBeforeUpdException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 }

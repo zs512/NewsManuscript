@@ -61,10 +61,10 @@ public class PendingManage extends Manage{
                 throw new PendingAddEmployeeNotExistentException("pending's employee is not existent");
 
         }catch(PendingAddManuscriptNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new PendingCheckBeforeAddException();
         }catch(PendingAddEmployeeNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new PendingCheckBeforeAddException();
         }
     }
@@ -85,7 +85,7 @@ public class PendingManage extends Manage{
                 throw new PendingDelNotExistentException("pending is not existent");
 
         }catch(PendingDelNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new PendingCheckBeforeDelException();
         }
 
@@ -109,23 +109,27 @@ public class PendingManage extends Manage{
             /*
              * check manuscript is existent or not
              */
+            if(pending.getComManuscript() == null || pending.getComManuscript().getManuscriptId() == null)
+                throw new NullPointerException("pending's manuscript is null");
             if(!checkManuscriptIsExistent(pending.getComManuscript().getManuscriptId()))
                 throw new PendingUpdManuscriptNotExistentException("pending's manuscript is not existent");
 
             /*
              * check referee person
              */
+            if(pending.getComUser() == null || pending.getComUser().getUserId() == null)
+                throw new NullPointerException("pending's manuscript is null");
             if(!checkEmployeeIsExistent(pending.getComUser().getUserId()))
                 throw new PendingUpdEmployeeNotExistentException("pending's employee is not existent");
 
         }catch(PendingUpdNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new PendingCheckBeforeUpdException();
         }catch(PendingUpdManuscriptNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new PendingCheckBeforeUpdException();
         }catch(PendingUpdEmployeeNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new PendingCheckBeforeUpdException();
         }
     }
@@ -138,7 +142,7 @@ public class PendingManage extends Manage{
             pending.setStatus(0);
             comPendingDAO.save(pending);
         }catch(PendingCheckBeforeAddException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 
@@ -150,7 +154,7 @@ public class PendingManage extends Manage{
             pending.setStatus(1);
             comPendingDAO.attachDirty(pending);
         }catch(PendingCheckBeforeDelException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
 
     }
@@ -162,7 +166,7 @@ public class PendingManage extends Manage{
             pending.setStatus(0);
             comPendingDAO.attachDirty(pending);
         }catch(PendingCheckBeforeUpdException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 }

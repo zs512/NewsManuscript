@@ -46,10 +46,10 @@ public class ManuscriptTypeManage extends Manage{
             else if(checkManuscriptTypeNameIsExistent(manuscriptType.getManuscripterTypeName()))
                 throw new ManuscriptTypeAddNameIsExistentException("manuscriptType's name is existent");
         }catch(ManuscriptTypeAddNameSizeException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptTypeCheckBeforeAddException();
         }catch(ManuscriptTypeAddNameIsExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptTypeCheckBeforeAddException();
         }
     }
@@ -70,7 +70,7 @@ public class ManuscriptTypeManage extends Manage{
                 throw new ManuscriptTypeDelNotExistentException("manuscriptType is not existent");
 
         }catch(ManuscriptTypeDelNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptTypeCheckBeforeDelException();
         }
     }
@@ -104,13 +104,13 @@ public class ManuscriptTypeManage extends Manage{
                     throw new ManuscriptTypeUpdNameRepeatException("manuscriptType's name is existent");
             }
         }catch(ManuscriptTypeUpdNotExistentException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptTypeCheckBeforeUpdException();
         }catch(ManuscriptTypeUpdNameSizeException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptTypeCheckBeforeUpdException();
         }catch(ManuscriptTypeUpdNameRepeatException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
             throw new ManuscriptTypeCheckBeforeUpdException();
         }
     }
@@ -123,7 +123,7 @@ public class ManuscriptTypeManage extends Manage{
             manuscriptType.setStatus(0);
             comManuscriptTypeDAO.save(manuscriptType);
         }catch(ManuscriptTypeCheckBeforeAddException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 
@@ -135,7 +135,7 @@ public class ManuscriptTypeManage extends Manage{
             manuscriptType.setStatus(1);
             comManuscriptTypeDAO.attachDirty(manuscriptType);
         }catch(ManuscriptTypeCheckBeforeDelException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 
@@ -147,7 +147,7 @@ public class ManuscriptTypeManage extends Manage{
             manuscriptType.setStatus(0);
             comManuscriptTypeDAO.attachDirty(manuscriptType);
         }catch(ManuscriptTypeCheckBeforeUpdException e){
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 }

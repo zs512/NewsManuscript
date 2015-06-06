@@ -10,11 +10,6 @@
           <root url="file://$MODULE_DIR$/WebRoot" relative="/" />
         </webroots>
       </configuration>
-      <facet type="Struts2" name="Struts 2">
-        <configuration>
-          <propertiesKeys disabled="false" />
-        </configuration>
-      </facet>
     </facet>
     <facet type="Spring" name="Spring">
       <configuration>
@@ -31,7 +26,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="spring" level="project" />
     <orderEntry type="library" name="hibernate" level="project" />
+    <orderEntry type="library" name="spring" level="project" />
   </component>
 </module>

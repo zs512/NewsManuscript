@@ -7,17 +7,23 @@ import com.domain.ComUser;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.List;
+
 public class TestMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ApplicationContext aContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-		ComUserDAO comUserDAO = (ComUserDAO)aContext.getBean("ComUserDAO");
-		ComUser comUser = new ComUser();
+
 		ComDepartmentDAO comDepartmentDAO = (ComDepartmentDAO)aContext.getBean("ComDepartmentDAO");
 		ComDepartment comDepartment = new ComDepartment();
+		comDepartment.setDepartmentName("rqx");
+		comDepartment.setStatus(0);
+		comDepartmentDAO.save(comDepartment);
+		List<ComDepartment> comDepartmentList = comDepartmentDAO.findAll();
 
-		comDepartment = comDepartmentDAO.findById(null);
+		if(comDepartmentList != null)
+			System.out.println(comDepartmentList.size());
 
 //		comUser.setLoginPassword("rqx");
 //		comUser.setComDepartment(comDepartment);
