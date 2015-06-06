@@ -32,6 +32,7 @@ public class ComManuscriptFormDAO {
 	private static final Logger log = LoggerFactory
 			.getLogger(ComManuscriptFormDAO.class);
 	// property constants
+	public static final String SERIAL_NUMBER = "serialNumber";
 	public static final String STATUS = "status";
 
 	private SessionFactory sessionFactory;
@@ -110,6 +111,10 @@ public class ComManuscriptFormDAO {
 			log.error("find by property name failed", re);
 			throw re;
 		}
+	}
+
+	public List<ComManuscriptForm> findBySerialNumber(Object serialNumber) {
+		return findByProperty(SERIAL_NUMBER, serialNumber);
 	}
 
 	public List<ComManuscriptForm> findByStatus(Object status) {

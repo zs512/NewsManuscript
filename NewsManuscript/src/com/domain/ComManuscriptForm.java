@@ -22,6 +22,7 @@ public class ComManuscriptForm implements java.io.Serializable {
 	private String manuscriptFormId;
 	private ComManuscript comManuscript;
 	private ComForm comForm;
+	private Integer serialNumber;
 	private Integer status;
 
 	// Constructors
@@ -32,9 +33,10 @@ public class ComManuscriptForm implements java.io.Serializable {
 
 	/** full constructor */
 	public ComManuscriptForm(ComManuscript comManuscript, ComForm comForm,
-			Integer status) {
+			Integer serialNumber, Integer status) {
 		this.comManuscript = comManuscript;
 		this.comForm = comForm;
+		this.serialNumber = serialNumber;
 		this.status = status;
 	}
 
@@ -69,6 +71,15 @@ public class ComManuscriptForm implements java.io.Serializable {
 
 	public void setComForm(ComForm comForm) {
 		this.comForm = comForm;
+	}
+
+	@Column(name = "serial_number", nullable = false)
+	public Integer getSerialNumber() {
+		return this.serialNumber;
+	}
+
+	public void setSerialNumber(Integer serialNumber) {
+		this.serialNumber = serialNumber;
 	}
 
 	@Column(name = "status", nullable = false)
