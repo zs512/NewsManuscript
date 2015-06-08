@@ -9,6 +9,11 @@ import com.domain.ComManuscriptForm;
 import com.exceptions.manuscriptFormManage.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
 
 /**
  * Created by ruan on 6/6/15.
@@ -155,6 +160,21 @@ public class ManuscriptFormManage extends Manage{
         }
     }
 
+    private void checkBeforeUpdSerialNumber(List<ComManuscriptForm> manuscriptFormList) throws ManuscriptFormCheckBeforeUpdSerialNumberException{
+
+        try{
+            /*
+             * check object
+             */
+            if(manuscriptFormList == null || manuscriptFormList.size() <= 0)
+                throw new NullPointerException("manuscriptFormList is null");
+
+        }catch(NullPointerException e){
+            e.printStackTrace();
+            throw new ManuscriptFormCheckBeforeUpdSerialNumberException();
+        }
+    }
+
     public void addManuscriptForm(ComManuscriptForm manuscriptForm){
 
         try{
@@ -189,6 +209,28 @@ public class ManuscriptFormManage extends Manage{
             comManuscriptFormDAO.attachDirty(manuscriptForm);
         }catch(ManuscriptFormCheckBeforeUpdException e){
             e.printStackTrace();
+        }
+    }
+
+    @Transactional
+    public void updSerialNumber(List<ComManuscriptForm> manuscriptFormList){
+
+        try{
+            int serialNumber = 1;
+            ListIterator<ComManuscriptForm> iterator = manuscriptFormList.listIterator();
+            checkBeforeUpdSerialNumber(manuscriptFormList);
+            while(iterator.hasNext()){
+                ComManuscriptForm manuscriptFormTmp = comManuscriptFormDAO.findById(iterator.next().getManuscriptFormId());
+                manuscriptFormTmp.setSerialNumber(serialNumber++);
+                checkBeforeUpd(manuscriptFormTmp);
+                comManuscriptFormDAO.attachDirty(manuscriptFormTmp);
+            }
+        }catch(ManuscriptFormCheckBeforeUpdSerialNumberException e){
+            e.printStackTrace();
+            throw new RuntimeException();
+        }catch(ManuscriptFormCheckBeforeUpdException e) {
+            e.printStackTrace();
+            throw new RuntimeException();
         }
     }
 }
