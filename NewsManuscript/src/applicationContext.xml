@@ -13,7 +13,7 @@
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="url"
-			value="jdbc:sqlserver://192.168.2.104:1433;databaseName=NewsManuscript">
+			value="jdbc:sqlserver://172.100.100.246:1433;databaseName=NewsManuscript">
 		</property>
 		<property name="username" value="sa"></property>
 		<property name="password" value="admin_312"></property>
